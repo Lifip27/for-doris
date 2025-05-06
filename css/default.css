@@ -19,3 +19,34 @@
 #copyright a{color:#666}
 #icon{font-size: 48px;color: red;margin: 50 px; align-content: center;}
 #heartspan{align-content: center;text-align: center;margin: 20px;}
+#photoGallery {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #fffddc; /* Same vintage background color as body */
+    border-top: 2px solid #b89a6f; /* Vintage border color */
+    display: flex;  /* Use flexbox layout */
+    flex-wrap: wrap; /* Allow images to wrap to the next line if necessary */
+    justify-content: center; /* Center the images horizontally */
+}
+
+#photoGallery img {
+    max-width: 200px;
+    margin: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+#photoGallery img:hover {
+    transform: scale(1.05);
+}
+#photoGallery .caption {
+    font-family: 'Satisfy', sans-serif; /* Use Google Font "Roboto" or 'digit' if you want to use your custom font */
+    font-size: 18px; /* Optional: adjust font size */
+    color: #333; /* Optional: adjust text color */
+    margin-top: 10px;
+    text-align: center;
+}
+
+

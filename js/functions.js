@@ -43,7 +43,7 @@ function getHeartPoint(angle) {
 }
 
 function startHeartAnimation() {
-	var interval = 50;
+	var interval = 50;	
 	var angle = 10;
 	var heart = new Array();
 	var animationTimer = setInterval(function () {
@@ -71,7 +71,7 @@ function startHeartAnimation() {
 }
 
 (function($) {
-	$.fn.typewriter = function() {
+	$.fn.typewriter = function(callback) {
 		this.each(function() {
 			var $ele = $(this), str = $ele.html(), progress = 0;
 			$ele.html('');
@@ -85,8 +85,9 @@ function startHeartAnimation() {
 				$ele.html(str.substring(0, progress) + (progress & 1 ? '_' : ''));
 				if (progress >= str.length) {
 					clearInterval(timer);
+					if (callback) callback();
 				}
-			}, 75);
+			}, 0);
 		});
 		return this;
 	};

@@ -2,8 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <script src="https://kit.fontawesome.com/a14ae32021.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>This one is for my Varchhu</title>
+<title>This one is for my Doris</title>
 
 <style type="text/css">
 @font-face {
@@ -20,16 +21,25 @@
 
 <body>
 
+
+	
+
 <div id="mainDiv">
 	<div id="content">
 		<div id="code">
 			<span class="comments">/**</span><br />
-			<span class="space"/><span class="comments">*THE CODE OF LOVE</span><br />
+			<span class="space"></span><span class="comments">*THE WAY I CAN EXPRESS MY LOVE &lt;3</span><br />
+			<span class="space"></span><span class="comments">*Author: Neo</span><br />
+			<span class="space"></span><span class="comments">*For: only my dearest Doris</span><br />
 			<span class="space"/><span class="comments">*/</span><br />
 			Hey Girl !<br />
 			Do you remember the day we first met?<br />
-			<span class="comments">// The ET-LAB Friday. </span><br />
-			Since that day a spark begun;<br />
+			<span class="comments">// Liceu, but first time we talked </span><br />
+			Or our first date?<br />
+			<span class="comments">// The day we went to the mall</span><br />
+			To try new clothes at house;<br />
+			<span class="comments">// But from the start I knew I had a thing for you</span><br />
+			Everything you did was so different for me;<br />
 			<span class="comments">// Your face Your Voice Your Words.</span><br />
 			Your everything got imprinted in my heart;<br />
 			As the time went on;<br />
@@ -41,41 +51,71 @@
 			But our Bond will always grow back Stronger;<br />
 			<br>
 			<br>
-			All I want to say is:<br />
+			<span class="comments">// All I want to say is:<br />
+			Doris,<br />
+			You are the best thing that has ever happened to me;<br />
+			You are my everything;<br />
+			Bella, I will always be there for you;<br />
 			Baby, I will love you forever;<br />
 			<br>
 			<br>
-			Now If you want to hug me you can touch the heart below<br />
-			<br>
-			<span id="heartspan">
-			<a href="image.jpg"><i class="fas fa-heart" id="icon"></i></a>
+			<span class="comments">/*</span><br />
+			<span class="space"></span><span class="comments">*I LOVE YOU SO MUCH</span><br />
 			</span>
 		</div>
 		<div id="loveHeart">
 			<canvas id="garden"></canvas>
 			<div id="words">
 				<div id="messages">
-					वर्षा ऋतु FOREVER
+					Forever and Ever
 					<div id="elapseClock"></div>
 				</div>
 				<div id="loveu">
 					I LOVE YOU SO MUCH<br/>
-					<div class="signature">- RITVIK</div>
+					<div class="signature">- your Neo</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
+<div id="photoGallery" style="display: none;">
+    <!-- Your images and captions go here -->
+    <div class="photo">
+        <img src="images/image.jpeg" alt="At the park" />
+        <div class="caption">At the park 🌳</div>
+    </div>
+	<div class="photo">
+        <img src="images/image_2.jpeg" alt="Picnic" />
+        <div class="caption">Picnic 🥪</div>
+    </div>
+	<div class="photo">
+        <img src="images/image_3.jpeg" alt="Picnic" />
+        <div class="caption">In centru 💕</div>
+    </div>
+	<div class="photo">
+        <img src="images/image_4.jpeg" alt="Picnic" />
+        <div class="caption">Together baby 💖</div>
+    </div>
+</div>
+
+
+
 <script type="text/javascript">
 var offsetX = $("#loveHeart").width() / 2;
 var offsetY = $("#loveHeart").height() / 2 - 55;
 var together = new Date();
-together.setFullYear(2016, 8, 5);
-together.setHours(16);
+together.setFullYear(2025, 0, 22);
+together.setHours(17);
 together.setMinutes(30);
 together.setSeconds(0);
 together.setMilliseconds(0);
+
+$("#code").typewriter(function() {
+    // When typing finishes, show the photo gallery
+    $("#photoGallery").fadeIn(1000); // Show gallery with fade-in animation
+});
+
 
 if (!document.createElement('canvas').getContext) {
 	var msg = document.createElement("div");
@@ -100,5 +140,7 @@ if (!document.createElement('canvas').getContext) {
 	$("#code").typewriter();
 }
 </script>
+
+
 </body>
 </html>
