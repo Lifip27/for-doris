@@ -1,4 +1,4 @@
-﻿body{margin:0;padding:0;background:#ffe;font-size:12px;overflow:auto}
+﻿body{margin:0;padding:0;background:#e6c9fd;font-size:12px;overflow:auto}
 #mainDiv{width:100%;height:100%}
 #loveHeart{float:left;width:670px;height:625px}
 #garden{width:100%;height:100%}
@@ -23,7 +23,7 @@
     text-align: center;
     margin-top: 50px;
     padding: 20px;
-    background-color: #fffddc; /* Same vintage background color as body */
+    background-color: rgb(189, 119, 255); /* Same vintage background color as body */
     border-top: 2px solid #b89a6f; /* Vintage border color */
     display: flex;  /* Use flexbox layout */
     flex-wrap: wrap; /* Allow images to wrap to the next line if necessary */
@@ -42,7 +42,7 @@
     transform: scale(1.05);
 }
 #photoGallery .caption {
-    font-family: 'Satisfy', sans-serif; /* Use Google Font "Roboto" or 'digit' if you want to use your custom font */
+    font-family: 'Rubik Bubbles', sans-serif; /* Use Google Font "Roboto" or 'digit' if you want to use your custom font */
     font-size: 18px; /* Optional: adjust font size */
     color: #333; /* Optional: adjust text color */
     margin-top: 10px;
