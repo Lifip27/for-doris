@@ -1,4 +1,4 @@
-﻿body{margin:0;padding:0;background:#e6c9fd;font-size:12px;overflow:auto}
+﻿body{margin:0;padding:0;background:#d9aaff;font-size:12px;overflow:auto}
 #mainDiv{width:100%;height:100%}
 #loveHeart{float:left;width:670px;height:625px}
 #garden{width:100%;height:100%}
@@ -21,13 +21,13 @@
 #heartspan{align-content: center;text-align: center;margin: 20px;}
 #photoGallery {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 120px;  /* Increase the margin-top to push the gallery lower */
     padding: 20px;
-    background-color: rgb(189, 119, 255); /* Same vintage background color as body */
-    border-top: 2px solid #b89a6f; /* Vintage border color */
-    display: flex;  /* Use flexbox layout */
-    flex-wrap: wrap; /* Allow images to wrap to the next line if necessary */
-    justify-content: center; /* Center the images horizontally */
+    background-color: rgb(189, 119, 255); /* Vintage background color */
+    border-top: 2px solid #59046a; /* Vintage border color */
+    display: flex;  /* Flexbox layout */
+    flex-wrap: wrap; /* Wrap images to next line if necessary */
+    justify-content: center; /* Center images horizontally */
 }
 
 #photoGallery img {
@@ -41,12 +41,44 @@
 #photoGallery img:hover {
     transform: scale(1.05);
 }
+
 #photoGallery .caption {
-    font-family: 'Rubik Bubbles', sans-serif; /* Use Google Font "Roboto" or 'digit' if you want to use your custom font */
-    font-size: 18px; /* Optional: adjust font size */
-    color: #333; /* Optional: adjust text color */
+    font-family: 'Rubik Bubbles', sans-serif;
+    font-size: 18px; /* Adjust size as needed */
+    color: #333; 
     margin-top: 10px;
     text-align: center;
 }
+/* Add this to your CSS */
+.heart-icon {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    color: #9b4dca; /* Purple color */
+    z-index: 1000; /* Ensure hearts are above other elements */
+    background-image: url('file:///C:/code/doris/LoveProject/images/purpleheart.png'); /* Use a heart image */
+    background-size: cover; /* Cover the entire element */
+}
+
+#topLeftHeart {
+    top: 20px; /* Adjust the distance from the top */
+    left: 20px; /* Adjust the distance from the left */
+}
+
+#topRightHeart {
+    top: 20px; /* Adjust the distance from the top */
+    right: 20px; /* Adjust the distance from the right */
+}
+
+#beforeGalleryLeftHeart {
+    bottom: -10px; /* Position it before the photo gallery */
+    left: 20px; /* Adjust the distance from the left */
+}
+
+#beforeGalleryRightHeart {
+    bottom: -10px; /* Position it before the photo gallery */
+    right: 20px; /* Adjust the distance from the right */
+}
+
 
 
