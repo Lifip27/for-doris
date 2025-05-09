@@ -21,13 +21,13 @@
 #heartspan{align-content: center;text-align: center;margin: 20px;}
 #photoGallery {
     text-align: center;
-    margin-top: 120px;  /* Increase the margin-top to push the gallery lower */
+    margin-top: 120px;
     padding: 20px;
-    background-color: rgb(189, 119, 255); /* Vintage background color */
-    border-top: 2px solid #59046a; /* Vintage border color */
-    display: flex;  /* Flexbox layout */
-    flex-wrap: wrap; /* Wrap images to next line if necessary */
-    justify-content: center; /* Center images horizontally */
+    background-color: #bd77ff;
+    border-top: 2px solid #59046a; 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
 }
 
 #photoGallery img {
@@ -44,41 +44,85 @@
 
 #photoGallery .caption {
     font-family: 'Rubik Bubbles', sans-serif;
-    font-size: 18px; /* Adjust size as needed */
+    font-size: 18px;
     color: #333; 
     margin-top: 10px;
     text-align: center;
 }
-/* Add this to your CSS */
 .heart-icon {
+    position: absolute;
     width: 40px;
     height: 40px;
-    position: absolute;
-    color: #9b4dca; /* Purple color */
-    z-index: 1000; /* Ensure hearts are above other elements */
-    background-image: url('file:///C:/code/doris/LoveProject/images/purpleheart.png'); /* Use a heart image */
-    background-size: cover; /* Cover the entire element */
+    background-color: purple;
+    transform: rotate(45deg);
+    display: inline-block;
+    z-index: 1000;
 }
 
+.heart-icon::before,
+.heart-icon::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: purple;
+    border-radius: 50%;
+}
+
+.heart-icon::before {
+    left: 0;
+    top: -20px;
+}
+
+.heart-icon::after {
+    top: 0;
+    left: -20px;
+}
 #topLeftHeart {
-    top: 20px; /* Adjust the distance from the top */
-    left: 20px; /* Adjust the distance from the left */
+    top: 20px;
+    left: 20px;
 }
 
 #topRightHeart {
-    top: 20px; /* Adjust the distance from the top */
-    right: 20px; /* Adjust the distance from the right */
+    top: 20px;
+    right: 20px;
 }
 
-#beforeGalleryLeftHeart {
-    bottom: -10px; /* Position it before the photo gallery */
-    left: 20px; /* Adjust the distance from the left */
+#bottomLeftHeart {
+    bottom: -40px;
+    left: 20px;
 }
 
-#beforeGalleryRightHeart {
-    bottom: -10px; /* Position it before the photo gallery */
-    right: 20px; /* Adjust the distance from the right */
+#bottomRightHeart {
+    bottom: -40px;
+    right: 20px;
 }
 
+#photoGallery {
+    border-top: 2px solid #8102bd; 
+    border-bottom: 2px dashed #8102bd; 
+    padding-bottom: 20px; 
+}
+#photoGallery {
+    position: relative;/
+}
+.comments.sneak-peek {
+    color: rgb(101, 1, 101) !important;   
+    font-style: italic;        
+    font-size: 14px;            
+    position: absolute;         
+    bottom: 10px;                
+    right: 10px;                
+    text-align: right;          
+    margin: 0;                  
+}
+button:hover {
+    background-color: purple;
+    color: white;
+    transition: 0.3s ease;
+}
 
-
+a:hover {
+    color: purple;
+    transition: 0.3s ease;
+}
