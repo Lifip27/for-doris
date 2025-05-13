@@ -174,6 +174,21 @@ h2 {
     opacity: 0;
   }
 }
+.back-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #f8bbd0;
+  color: #6a1b9a;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: #f48fb1;
+  transform: scale(1.05);
+}
 
 
   </style>
@@ -187,6 +202,10 @@ h2 {
 
   <!-- JANUARY 2025 -->
   <h2>January 2025</h2>
+  <div style="text-align: left; max-width: 700px; margin: 0 auto 20px;">
+  <a href="../index.html" class="back-button">← Go back to the love letter</a>
+  </div>
+
   <div class="calendar">
     <!-- Weekdays -->
     <div class="header">Sun</div><div class="header">Mon</div><div class="header">Tue</div>
