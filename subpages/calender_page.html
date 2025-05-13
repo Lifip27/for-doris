@@ -112,6 +112,11 @@ h2 {
   transform: translateX(-50%) scale(1.5); /* Pop out above the calendar */
   z-index: 10; /* Bring the photo above the calendar content */
 }
+.hoverable.active .photo {
+  opacity: 1;
+  transform: translateX(-50%) scale(1.5); /* Pop out above the calendar */
+  z-index: 10;
+}
 .birthday {
   background-color: #9c27b0;
   color: rgb(0, 0, 0);
@@ -195,20 +200,20 @@ h2 {
     <div class="day">15</div><div class="day">16</div><div class="day">17</div>
     <div class="day">18</div><div class="day">19</div><div class="day">20</div>
     <div class="day">21</div>
-    <div class="day hoverable">
+    <div class="day hoverable" onclick="togglePhoto(this)">
     <div class="date-number">22</div>
     <div class="emoji-popup">💖 The day everything started...</div>
     </div>
     <div class="day">23</div>
     <div class="day">24</div><div class="day">25</div>
-    <div class="day hoverable">
+    <div class="day hoverable" onclick="togglePhoto(this)">
     <div class="date-number">26</div>
     <div class="emoji-popup">👐 First photo together</div>
     <img src="../images/jan26.jpeg" width="20" height="20" class="photo" />
     </div>
     <div class="day">27</div><div class="day">28</div><div class="day">29</div>
     <div class="day">30</div>
-    <div class="day hoverable">
+    <div class="day hoverable" onclick="togglePhoto(this)">
     <div class="date-number">31</div>
     <div class="emoji-popup">👏 Mi nevasta... SO CUTEQQ</div>
     <img src="../images/jan31.jpeg" width="20" height="20" class="photo" />
@@ -226,37 +231,37 @@ h2 {
     <div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div>
     <div class="day">6</div><div class="day">7</div><div class="day">8</div>
     <div class="day">9</div>
-    <div class="day hoverable">
+    <div class="day hoverable" onclick="togglePhoto(this)">
     <div class="date-number">10</div>
     <div class="emoji-popup">🌲 Field trip together</div>
     <img src="../images/feb10.jpeg" width="20" height="20" class="photo" />
     </div>
     <div class="day">11</div>
-    <div class="day hoverable">
+    <div class="day hoverable" onclick="togglePhoto(this)">
     <div class="date-number">12</div>
     <div class="emoji-popup">😴 Neo sleepy sleepy</div>
     <img src="../images/feb12.jpeg" width="20" height="20" class="photo" />
     </div>
     <div class="day">13</div>
-    <div class="day hoverable">
+    <div class="day hoverable" onclick="togglePhoto(this)">
     <div class="date-number">14</div>
     <div class="emoji-popup">💋 First valentine together</div>
     <img src="../images/feb14.jpeg" width="20" height="20" class="photo" />
     </div>
-    <div class="day hoverable">
+    <div class="day hoverable" onclick="togglePhoto(this)">
     <div class="date-number">15</div>
     <div class="emoji-popup">🎨 Doris, you are an artist</div>
     <img src="../images/feb15.jpeg" width="20" height="20" class="photo" />
     </div>
     <div class="day">16</div><div class="day">17</div>
     <div class="day">18</div>
-    <div class="day hoverable">
+    <div class="day hoverable" onclick="togglePhoto(this)">
     <div class="date-number">19</div>
     <div class="emoji-popup">👗 That dress... my lord 😍</div>
     <img src="../images/feb19.jpeg" width="20" height="20" class="photo" />
     </div>
     <div class="day">20</div>
-    <div class="day hoverable">
+    <div class="day hoverable" onclick="togglePhoto(this)">
     <div class="date-number">21</div>
     <div class="emoji-popup">🕺 Blackeo neo black</div>
     <img src="../images/feb21.jpeg" width="20" height="20" class="photo" />
@@ -274,7 +279,7 @@ h2 {
     <!-- Mar 1 is a Saturday -->
     <div class="empty"></div><div class="empty"></div><div class="empty"></div>
     <div class="empty"></div><div class="empty"></div><div class="empty"></div>
-    <div class="day hoverable">
+    <div class="day hoverable" onclick="togglePhoto(this)">
     <div class="date-number">1</div>
     <div class="emoji-popup">🌹 THE flower for the princess 👸</div>
     <img src="../images/mar1.jpeg" width="20" height="20" class="photo"/>
@@ -355,7 +360,7 @@ h2 {
     <!-- July 1 is a Tuesday -->
     <div class="empty"></div><div class="empty"></div><div class="day">1</div>
     <div class="day">2</div><div class="day">3</div>
-    <div class="birthday hoverable">
+    <div class="birthday hoverable" onclick="togglePhoto(this)">
     <span class="date-number">4</span>
     <div class="emoji-popup">🎂 HAPPY BIRTHDAY MY LOVEEE 🎂</div>
     <div class="confetti"></div>
@@ -419,6 +424,11 @@ document.querySelectorAll('.birthday').forEach(birthday => {
     }
   });
 });
+</script>
+<script>
+  function togglePhoto(element) {
+    element.classList.toggle('active');
+  }
 </script>
 
 
