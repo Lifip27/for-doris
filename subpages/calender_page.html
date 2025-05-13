@@ -426,10 +426,32 @@ document.querySelectorAll('.birthday').forEach(birthday => {
 });
 </script>
 <script>
-  function togglePhoto(element) {
-    element.classList.toggle('active');
-  }
+  // Handle photo reveal on click (for mobile)
+  document.querySelectorAll('.hoverable').forEach(item => {
+    item.addEventListener('click', () => {
+      // Hide all photos first
+      document.querySelectorAll('.photo').forEach(photo => {
+        photo.classList.remove('show');
+      });
+
+      // Then toggle the clicked one
+      const photo = item.querySelector('.photo');
+      if (photo) {
+        photo.classList.add('show');
+      }
+    });
+  });
+
+  // Optional: click anywhere else to hide them all
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.hoverable')) {
+      document.querySelectorAll('.photo').forEach(photo => {
+        photo.classList.remove('show');
+      });
+    }
+  });
 </script>
+
 
 
 
