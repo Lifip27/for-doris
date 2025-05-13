@@ -126,3 +126,42 @@ a:hover {
     color: purple;
     transition: 0.3s ease;
 }
+.day {
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+
+.photo-popup {
+  display: none;
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  z-index: 10;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.photo-popup img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.hoverable:hover .photo-popup {
+  display: block;
+}
+
+#message-box {
+  margin-top: 20px;
+  padding: 10px;
+  min-height: 30px;
+  font-size: 1em;
+  background-color: #fff4e6;
+  border: 1px solid #ffce94;
+  border-radius: 6px;
+  font-style: italic;
+  transition: all 0.3s ease;
+}

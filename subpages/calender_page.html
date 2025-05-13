@@ -1,9 +1,426 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Calendar Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our 2025 Love Calendar</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+<style>
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff0f5;
+  color: #333;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #d63384;
+  margin-bottom: 40px;
+}
+
+h2 {
+  text-align: center;
+  margin: 40px 0 10px;
+  color: #c2185b;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  position: relative; /* This keeps the calendar in place */
+}
+
+.day, .header {
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.header {
+  background-color: #f48fb1;
+  color: white;
+  font-weight: bold;
+}
+
+.day {
+  background-color: #ffe0eb;
+}
+
+.empty {
+  background: transparent;
+}
+.special {
+    background-color: #d156f7;
+    color: white;
+    font-weight: bold;
+}
+.highlight {
+  background-color: #ff69b4;
+  color: white;
+  font-weight: bold;
+}
+
+.hoverable {
+  position: relative;
+  cursor: pointer;
+}
+
+.emoji-popup {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.hoverable:hover .emoji-popup {
+  opacity: 1;
+}
+
+.date-number {
+  font-weight: bold;
+}
+
+.photo {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 5px;
+  position: absolute; /* Absolute positioning to float over the calendar */
+  top: 75%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.5); /* Initially smaller */
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s; /* Smooth transition */
+  z-index: -1; /* Ensure the image stays behind other content in the calendar */
+}
+
+.hoverable:hover .photo {
+  opacity: 1; /* Make the photo visible when hovered */
+  transform: translateX(-50%) scale(1.5); /* Pop out above the calendar */
+  z-index: 10; /* Bring the photo above the calendar content */
+}
+.birthday {
+  background-color: #9c27b0;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  border: 2px solid #7b1fa2;
+  box-shadow: 0 0 10px #9c27b099;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.birthday::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 105, 180, 0.5);
+  border-radius: 8px;
+  z-index: -1; /* Behind the birthday text */
+}
+.confetti {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+
+.confetti span {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  opacity: 0;
+  animation: none;
+}
+
+@keyframes confetti-up-then-down {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(var(--x), var(--y)) rotate(360deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(var(--x) * 1.2), 40px) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+
+  </style>
 </head>
 <body>
-    <h1>Work in progress</h1>
-    <p>Ar trebui sa fie un calendar</p>
+  <h1>Our 2025 Love Calendar 💖</h1>
+
+  <!-- Function to render a month -->
+  <!-- You can repeat this block per month -->
+  <!-- Here are months Jan to July 4, 2025 -->
+
+  <!-- JANUARY 2025 -->
+  <h2>January 2025</h2>
+  <div class="calendar">
+    <!-- Weekdays -->
+    <div class="header">Sun</div><div class="header">Mon</div><div class="header">Tue</div>
+    <div class="header">Wed</div><div class="header">Thu</div><div class="header">Fri</div><div class="header">Sat</div>
+    <!-- Jan 1 is a Wednesday -->
+    <div class="empty"></div><div class="empty"></div><div class="empty"></div>
+    <div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div>
+    <div class="day">5</div><div class="day">6</div><div class="day">7</div><div class="day">8</div>
+    <div class="day">9</div><div class="day">10</div><div class="day">11</div>
+    <div class="day">12</div><div class="day">13</div><div class="day">14</div>
+    <div class="day">15</div><div class="day">16</div><div class="day">17</div>
+    <div class="day">18</div><div class="day">19</div><div class="day">20</div>
+    <div class="day">21</div>
+    <div class="day hoverable">
+    <div class="date-number">22</div>
+    <div class="emoji-popup">💖 The day everything started...</div>
+    </div>
+    <div class="day">23</div>
+    <div class="day">24</div><div class="day">25</div>
+    <div class="day hoverable">
+    <div class="date-number">26</div>
+    <div class="emoji-popup">👐 First photo together</div>
+    <img src="../images/jan26.jpeg" width="20" height="20" class="photo" />
+    </div>
+    <div class="day">27</div><div class="day">28</div><div class="day">29</div>
+    <div class="day">30</div>
+    <div class="day hoverable">
+    <div class="date-number">31</div>
+    <div class="emoji-popup">👏 Mi nevasta... SO CUTEQQ</div>
+    <img src="../images/jan31.jpeg" width="20" height="20" class="photo" />
+    </div>
+  </div>
+
+  <!-- FEBRUARY 2025 -->
+  <h2>February 2025</h2>
+  <div class="calendar">
+    <div class="header">Sun</div><div class="header">Mon</div><div class="header">Tue</div>
+    <div class="header">Wed</div><div class="header">Thu</div><div class="header">Fri</div><div class="header">Sat</div>
+    <!-- Feb 1 is a Saturday -->
+    <div class="empty"></div><div class="empty"></div><div class="empty"></div>
+    <div class="empty"></div><div class="empty"></div><div class="empty"></div><div class="day">1</div>
+    <div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div>
+    <div class="day">6</div><div class="day">7</div><div class="day">8</div>
+    <div class="day">9</div>
+    <div class="day hoverable">
+    <div class="date-number">10</div>
+    <div class="emoji-popup">🌲 Field trip together</div>
+    <img src="../images/feb10.jpeg" width="20" height="20" class="photo" />
+    </div>
+    <div class="day">11</div>
+    <div class="day hoverable">
+    <div class="date-number">12</div>
+    <div class="emoji-popup">😴 Neo sleepy sleepy</div>
+    <img src="../images/feb12.jpeg" width="20" height="20" class="photo" />
+    </div>
+    <div class="day">13</div>
+    <div class="day hoverable">
+    <div class="date-number">14</div>
+    <div class="emoji-popup">💋 First valentine together</div>
+    <img src="../images/feb14.jpeg" width="20" height="20" class="photo" />
+    </div>
+    <div class="day hoverable">
+    <div class="date-number">15</div>
+    <div class="emoji-popup">🎨 Doris, you are an artist</div>
+    <img src="../images/feb15.jpeg" width="20" height="20" class="photo" />
+    </div>
+    <div class="day">16</div><div class="day">17</div>
+    <div class="day">18</div>
+    <div class="day hoverable">
+    <div class="date-number">19</div>
+    <div class="emoji-popup">👗 That dress... my lord 😍</div>
+    <img src="../images/feb19.jpeg" width="20" height="20" class="photo" />
+    </div>
+    <div class="day">20</div>
+    <div class="day hoverable">
+    <div class="date-number">21</div>
+    <div class="emoji-popup">🕺 Blackeo neo black</div>
+    <img src="../images/feb21.jpeg" width="20" height="20" class="photo" />
+    </div>
+    <div class="day">22</div><div class="day">23</div>
+    <div class="day">24</div><div class="day">25</div><div class="day">26</div>
+    <div class="day">27</div><div class="day">28</div>
+  </div>
+
+  <!-- MARCH 2025 -->
+  <h2>March 2025</h2>
+  <div class="calendar">
+    <div class="header">Sun</div><div class="header">Mon</div><div class="header">Tue</div>
+    <div class="header">Wed</div><div class="header">Thu</div><div class="header">Fri</div><div class="header">Sat</div>
+    <!-- Mar 1 is a Saturday -->
+    <div class="empty"></div><div class="empty"></div><div class="empty"></div>
+    <div class="empty"></div><div class="empty"></div><div class="empty"></div>
+    <div class="day hoverable">
+    <div class="date-number">1</div>
+    <div class="emoji-popup">🌹 THE flower for the princess 👸</div>
+    <img src="../images/mar1.jpeg" width="20" height="20" class="photo"/>
+    </div>
+    <div class="day">2</div><div class="day">3</div><div class="day">4</div>
+    <div class="day">5</div><div class="day">6</div><div class="day">7</div>
+    <div class="day">8</div><div class="day">9</div><div class="day">10</div>
+    <div class="day">11</div><div class="day">12</div><div class="day">13</div>
+    <div class="day">14</div><div class="day">15</div><div class="day">16</div>
+    <div class="day">17</div><div class="day">18</div><div class="day">19</div>
+    <div class="day">20</div><div class="day">21</div><div class="day">22</div>
+    <div class="day">23</div><div class="day">24</div><div class="day">25</div>
+    <div class="day">26</div><div class="day">27</div><div class="day">28</div>
+    <div class="day">29</div><div class="day">30</div><div class="day">31</div>
+  </div>
+
+  <!-- APRIL 2025 -->
+  <h2>April 2025</h2>
+  <div class="calendar">
+    <div class="header">Sun</div><div class="header">Mon</div><div class="header">Tue</div>
+    <div class="header">Wed</div><div class="header">Thu</div><div class="header">Fri</div><div class="header">Sat</div>
+    <!-- Apr 1 is a Tuesday -->
+    <div class="empty"></div><div class="empty"></div><div class="day">1</div>
+    <div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div>
+    <div class="day">6</div><div class="day">7</div><div class="day">8</div>
+    <div class="day">9</div><div class="day">10</div><div class="day">11</div>
+    <div class="day">12</div><div class="day">13</div><div class="day">14</div>
+    <div class="day">15</div><div class="day">16</div><div class="day">17</div>
+    <div class="day">18</div><div class="day">19</div><div class="day">20</div>
+    <div class="day">21</div><div class="day">22</div><div class="day">23</div>
+    <div class="day">24</div><div class="day">25</div><div class="day">26</div>
+    <div class="day">27</div><div class="day">28</div><div class="day">29</div>
+    <div class="day">30</div>
+  </div>
+
+  <!-- MAY 2025 -->
+  <h2>May 2025</h2>
+  <div class="calendar">
+    <div class="header">Sun</div><div class="header">Mon</div><div class="header">Tue</div>
+    <div class="header">Wed</div><div class="header">Thu</div><div class="header">Fri</div><div class="header">Sat</div>
+    <!-- May 1 is a Thursday -->
+    <div class="empty"></div><div class="empty"></div><div class="empty"></div>
+    <div class="empty"></div><div class="day">1</div><div class="day">2</div><div class="day">3</div>
+    <div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div>
+    <div class="day">8</div><div class="day">9</div><div class="day">10</div>
+    <div class="day">11</div><div class="day">12</div><div class="day">13</div>
+    <div class="day">14</div><div class="day">15</div><div class="day">16</div>
+    <div class="day">17</div><div class="day">18</div><div class="day">19</div>
+    <div class="day">20</div><div class="day">21</div><div class="day">22</div>
+    <div class="day">23</div><div class="day">24</div><div class="day">25</div>
+    <div class="day">26</div><div class="day">27</div><div class="day">28</div>
+    <div class="day">29</div><div class="day">30</div><div class="day">31</div>
+  </div>
+
+  <!-- JUNE 2025 -->
+  <h2>June 2025</h2>
+  <div class="calendar">
+    <div class="header">Sun</div><div class="header">Mon</div><div class="header">Tue</div>
+    <div class="header">Wed</div><div class="header">Thu</div><div class="header">Fri</div><div class="header">Sat</div>
+    <!-- June 1 is a Sunday -->
+    <div class="day">1</div><div class="day">2</div><div class="day">3</div>
+    <div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div>
+    <div class="day">8</div><div class="day">9</div><div class="day">10</div>
+    <div class="day">11</div><div class="day">12</div><div class="day">13</div>
+    <div class="day">14</div><div class="day">15</div><div class="day">16</div>
+    <div class="day">17</div><div class="day">18</div><div class="day">19</div>
+    <div class="day">20</div><div class="day">21</div><div class="day">22</div>
+    <div class="day">23</div><div class="day">24</div><div class="day">25</div>
+    <div class="day">26</div><div class="day">27</div><div class="day">28</div>
+    <div class="day">29</div><div class="day">30</div>
+  </div>
+
+  <!-- JULY 2025 (only up to 4th) -->
+  <h2>July 2025</h2>
+  <div class="calendar">
+    <div class="header">Sun</div><div class="header">Mon</div><div class="header">Tue</div>
+    <div class="header">Wed</div><div class="header">Thu</div><div class="header">Fri</div><div class="header">Sat</div>
+    <!-- July 1 is a Tuesday -->
+    <div class="empty"></div><div class="empty"></div><div class="day">1</div>
+    <div class="day">2</div><div class="day">3</div>
+    <div class="birthday hoverable">
+    <span class="date-number">4</span>
+    <div class="emoji-popup">🎂 HAPPY BIRTHDAY MY LOVEEE 🎂</div>
+    <div class="confetti"></div>
+</div>
+
+  </div>
+
+<div id="message-box"></div>
+    <style>
+        #message-box {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #ff69b4;
+        color: white;
+        padding: 10px;
+        border-radius: 8px;
+        display: none;
+        }
+        .hoverable:hover + #message-box {
+        display: block;
+        }
+    </style>
+
 </body>
+<script>
+  const days = document.querySelectorAll('.hoverable');
+  const messageBox = document.getElementById('message-box');
+
+  days.forEach(day => {
+    day.addEventListener('mouseenter', () => {
+      const message = day.getAttribute('data-message');
+      messageBox.textContent = message;
+    });
+    day.addEventListener('mouseleave', () => {
+      messageBox.textContent = '';
+    });
+  });
+</script>
+<script>
+document.querySelectorAll('.birthday').forEach(birthday => {
+  const confettiContainer = birthday.querySelector('.confetti');
+
+  birthday.addEventListener('mouseenter', () => {
+    confettiContainer.innerHTML = ''; // Clear previous confetti
+
+    for (let i = 0; i < 10; i++) {
+      const confetti = document.createElement('span');
+
+      // Randomize horizontal spread
+      const x = (Math.random() - 0.5) * 100 + 'px';
+      const y = -1 * (Math.random() * 80 + 60) + 'px'; // Always upwards first
+
+      confetti.style.setProperty('--x', x);
+      confetti.style.setProperty('--y', y);
+      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 70%)`;
+      confetti.style.animation = 'confetti-up-then-down 1.2s ease-in-out forwards';
+
+      confettiContainer.appendChild(confetti);
+    }
+  });
+});
+</script>
+
+
+
 </html>
